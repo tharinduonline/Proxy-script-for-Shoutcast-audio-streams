@@ -1,0 +1,11 @@
+<FilesMatch "mp3$">
+    SetHandler application/x-httpd-php5
+</FilesMatch>
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# RewriteBase /
+# Redirect MP3 to PHP
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*).mp3$ index.php [L]
+</IfModule>
